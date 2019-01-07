@@ -21,6 +21,9 @@
         "prefer-const": true,
         // 2.2
         "no-var-keyword": true,
+
+        "no-var-requires": false,
+
         // 3.3, 3.4
         "object-literal-shorthand": true,
         // 3.6

@@ -1,23 +1,23 @@
 interface StateColorProps {
     State: {
-        Error: string;
-        Active: string;
+        error: string;
+        active: string;
     };
 }
 
 interface TextColorProps {
     Gray: {
-        dark: '#333';
-        light: '#ccc';
-        middle: '#666';
-        soft: '#999';
+        dark: string;
+        light: string;
+        middle: string;
+        soft: string;
     };
 }
 
 interface BackgroundColorProps {
     Background: {
-        dark: '#263238';
-        light: '#fefefe';
+        dark: string;
+        light: string;
     };
 }
 

@@ -11,8 +11,8 @@ export const Text: TextColorProps = {
 
 export const State: StateColorProps = {
     State: {
-        Active: '#26a69a',
-        Error: '#f04e65'
+        active: '#26a69a',
+        error: '#f04e65'
     }
 };
 
