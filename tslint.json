@@ -71,6 +71,7 @@
         ],
 
         "jsx-wrap-multiline": true,
-        "no-empty-interface": false
+        "no-empty-interface": false,
+        "jsx-boolean-value": false
     }
 }

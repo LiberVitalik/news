@@ -31,21 +31,21 @@ export class Modal extends React.Component<ModalState> {
                                 <legend>News api form</legend>
                                 {this.state.isLoginIn && (
                                     <>
-                                        <label className={`${this.state.signIn.login ? 'label-active' : ''}`}>
+                                        <label className={this.isLabelActive(this.state.signIn.login)}>
                                             <input type="text"
                                                    name={'login'}
                                                    onChange={this.inputHandler}
                                                    value={this.state.signIn.login}
-                                                   required={true}
+                                                   required
                                             />
                                             <small>Login</small>
                                         </label>
-                                        <label className={`${this.state.signIn.activePassword ? 'label-active' : ''}`}>
+                                        <label className={this.isLabelActive(this.state.signIn.activePassword)}>
                                             <input type="password"
                                                    name={'activePassword'}
                                                    onChange={this.inputHandler}
                                                    value={this.state.signIn.activePassword}
-                                                   required={true}
+                                                   required
                                             />
                                             <small>Password</small>
                                         </label>
@@ -53,45 +53,45 @@ export class Modal extends React.Component<ModalState> {
                                 )}
                                 {this.state.isLoginUp && (
                                     <>
-                                        <label className={`${this.state.signUp.firstName ? 'label-active' : ''}`}>
+                                        <label className={this.isLabelActive(this.state.signUp.firstName)}>
                                             <input type="text"
                                                    name={'firstName'}
                                                    onChange={this.inputHandler}
                                                    value={this.state.signUp.firstName}
-                                                   required={true}
+                                                   required
                                             />
                                             <small>First name</small>
                                         </label>
-                                        <label className={`${this.state.signUp.lastName ? 'label-active' : ''}`}>
+                                        <label className={this.isLabelActive(this.state.signUp.lastName)}>
                                             <input type="text"
                                                    name={'lastName'}
                                                    onChange={this.inputHandler}
                                                    value={this.state.signUp.lastName}
-                                                   required={true}
+                                                   required
                                             />
                                             <small>Last Name</small>
                                         </label>
-                                        <label className={`${this.state.signUp.email ? 'label-active' : ''}`}>
+                                        <label className={this.isLabelActive(this.state.signUp.email)}>
                                             <input type="email"
                                                    name={'email'}
                                                    onChange={this.inputHandler}
                                                    value={this.state.signUp.email}
-                                                   required={true}
+                                                   required
                                             />
                                             <small>Email</small>
                                         </label>
-                                        <label className={`${this.state.signUp.regPassword ? 'label-active' : ''}`}>
+                                        <label className={this.isLabelActive(this.state.signUp.regPassword)}>
                                             <input type="password"
                                                    name={'regPassword'}
                                                    onChange={this.inputHandler}
                                                    value={this.state.signUp.regPassword}
-                                                   required={true}
+                                                   required
                                             />
                                             <small>Password</small>
                                         </label>
                                     </>
                                 )}
-                                <Button circle={true}>OK</Button>
+                                <Button circle>OK</Button>
                             </fieldset>
                         </ModalContent>
                     </ModalWrapper>
@@ -117,5 +117,9 @@ export class Modal extends React.Component<ModalState> {
                 }
             });
         }
+    };
+
+    private isLabelActive = (event: string) => {
+        return !!event ? 'label-active' : '';
     };
 }
