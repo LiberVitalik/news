@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { Button } from '../../theme/button/Button';
-import { ModalState } from './ModalState';
+import { FormField } from '../formField/FormField';
+import { ModalProps } from './Modal.types';
 import { ModalContent, ModalWrapper } from './style';
 
-export class Modal extends React.Component<ModalState> {
-    
-    public state: ModalState = {
-        isLoginIn: false,
-        isLoginUp: true,
+export class Modal extends React.Component<{}, ModalProps> {
+
+    public state: ModalProps = {
+        isSignIn: false,
+        isSignUp: true,
         isVisible: true,
         signIn: {
             activePassword: '',
@@ -29,66 +30,48 @@ export class Modal extends React.Component<ModalState> {
                         <ModalContent action="GET">
                             <fieldset>
                                 <legend>News api form</legend>
-                                {this.state.isLoginIn && (
+                                {this.state.isSignIn && (
                                     <>
-                                        <label className={this.isLabelActive(this.state.signIn.login)}>
-                                            <input type="text"
+                                        <FormField type="text"
                                                    name={'login'}
                                                    onChange={this.inputHandler}
                                                    value={this.state.signIn.login}
-                                                   required
-                                            />
-                                            <small>Login</small>
-                                        </label>
-                                        <label className={this.isLabelActive(this.state.signIn.activePassword)}>
-                                            <input type="password"
+                                                   title={'Login'}
+                                                   required />
+                                        <FormField type="password"
                                                    name={'activePassword'}
                                                    onChange={this.inputHandler}
+                                                   title={'Password'}
                                                    value={this.state.signIn.activePassword}
-                                                   required
-                                            />
-                                            <small>Password</small>
-                                        </label>
+                                                   required />
                                     </>
                                 )}
-                                {this.state.isLoginUp && (
+                                {this.state.isSignUp && (
                                     <>
-                                        <label className={this.isLabelActive(this.state.signUp.firstName)}>
-                                            <input type="text"
+                                        <FormField type="text"
                                                    name={'firstName'}
                                                    onChange={this.inputHandler}
+                                                   title={'First name'}
                                                    value={this.state.signUp.firstName}
-                                                   required
-                                            />
-                                            <small>First name</small>
-                                        </label>
-                                        <label className={this.isLabelActive(this.state.signUp.lastName)}>
-                                            <input type="text"
+                                                   required />
+                                        <FormField type="text"
                                                    name={'lastName'}
                                                    onChange={this.inputHandler}
+                                                   title={'Last Name'}
                                                    value={this.state.signUp.lastName}
-                                                   required
-                                            />
-                                            <small>Last Name</small>
-                                        </label>
-                                        <label className={this.isLabelActive(this.state.signUp.email)}>
-                                            <input type="email"
+                                                   required />
+                                        <FormField type="email"
                                                    name={'email'}
                                                    onChange={this.inputHandler}
+                                                   title={'Email'}
                                                    value={this.state.signUp.email}
-                                                   required
-                                            />
-                                            <small>Email</small>
-                                        </label>
-                                        <label className={this.isLabelActive(this.state.signUp.regPassword)}>
-                                            <input type="password"
+                                                   required />
+                                        <FormField type="password"
                                                    name={'regPassword'}
                                                    onChange={this.inputHandler}
+                                                   title={'Password'}
                                                    value={this.state.signUp.regPassword}
-                                                   required
-                                            />
-                                            <small>Password</small>
-                                        </label>
+                                                   required />
                                     </>
                                 )}
                                 <Button circle>OK</Button>
@@ -100,26 +83,20 @@ export class Modal extends React.Component<ModalState> {
         );
     }
 
-    private inputHandler = (event: React.FormEvent<HTMLInputElement>) => {
-        if (this.state.isLoginIn) {
+    private inputHandler = (value: string): void => {
+        if (this.state.isSignIn) {
             this.setState({
                 signIn: {
-                    [event.currentTarget.name]: event.currentTarget.value,
-                    [event.currentTarget.name]: event.currentTarget.value
+                    [name]: value
                 }
-            });
+            } as ModalProps);
         }
-        if (this.state.isLoginUp) {
+        if (this.state.isSignUp) {
             this.setState({
                 signUp: {
-                    [event.currentTarget.name]: event.currentTarget.value,
-                    [event.currentTarget.name]: event.currentTarget.value
+                    [name]: value
                 }
-            });
+            } as ModalProps);
         }
-    };
-
-    private isLabelActive = (event: string) => {
-        return !!event ? 'label-active' : '';
     };
 }

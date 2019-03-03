@@ -1,4 +1,4 @@
-export interface ModalState {
+export interface ModalProps {
     isVisible?: boolean;
     signIn?: {
         login: string,
@@ -10,6 +10,6 @@ export interface ModalState {
         email: string,
         regPassword: string
     };
-    isLoginIn?: boolean;
-    isLoginUp?: boolean;
+    isSignIn?: boolean;
+    isSignUp?: boolean;
 }

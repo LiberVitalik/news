@@ -8,5 +8,8 @@ export const IconWrapper = styled(FontAwesomeIcon)`
 export const UserWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
-    margin-right: 2%;
+    
+    button {
+        margin-right: 1rem;
+    }
 `;
