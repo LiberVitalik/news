@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { User } from '../user/User';
-import { HeaderWrapper, Logo } from './style';
+import { User } from '../user/user';
+import { HeaderWrapper, Logo } from './header.style';
 
 export class Header extends React.Component {
 

@@ -2,9 +2,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import * as React from 'react';
 import { Button } from '../../theme/button/Button';
-import { Modal } from '../modal/Modal';
-import { ButtonHandleWrapper, IconWrapper, UserWrapper } from './User.style';
-import { UserState } from './User.types';
+import { Modal } from '../modal/modal';
+import { ButtonHandleWrapper, IconWrapper, UserWrapper } from './user.style';
+import { UserState } from './user.types';
 
 library.add(faUser);
 library.add(faUserPlus);

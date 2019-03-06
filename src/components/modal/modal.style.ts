@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ButtonWrapper } from '../../theme/button/style';
 import { ColorPalette } from '../../theme/colors/colors';
 import { OpenSans } from '../../theme/fonts/fonts';
-import { FormFieldInput, FormFieldSmall } from '../formField/style';
+import { FormFieldInput, FormFieldSmall } from '../formField/form-field.style';
 
 export const ModalWrapper = styled.div`
     position: fixed;

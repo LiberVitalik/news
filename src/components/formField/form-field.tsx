@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { FormFieldProps, FormFieldState } from './FormField.types';
-import { FormFieldInput, FormFieldLabel, FormFieldSmall } from './style';
+import { FormFieldProps, FormFieldState } from './form-field.types';
+import { FormFieldInput, FormFieldLabel, FormFieldSmall } from './form-field.style';
 
 export class FormField extends React.PureComponent<FormFieldProps, FormFieldState> {
 
