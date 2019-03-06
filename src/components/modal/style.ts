@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { ButtonWrapper } from '../../theme/button/style';
 import { ColorPalette } from '../../theme/colors/colors';
 import { OpenSans } from '../../theme/fonts/fonts';
+import { FormFieldInput, FormFieldSmall } from '../formField/style';
 
 export const ModalWrapper = styled.div`
     position: fixed;
@@ -47,12 +48,12 @@ export const ModalContent = styled.form`
         }
         
         .label-active {
-            input {
+            ${FormFieldInput} {
                 border-color: ${ColorPalette.State.active};
             }
             
-            input:not(:focus) {
-                & + small {
+            ${FormFieldInput}:not(:focus) {
+                & + ${FormFieldSmall} {
                     color: ${ColorPalette.State.active};
                     top: -5px;
                     font-size: 0.75rem;

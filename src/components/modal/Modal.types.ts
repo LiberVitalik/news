@@ -1,5 +1,4 @@
 export interface ModalProps {
-    isVisible?: boolean;
     signIn?: {
         login: string,
         activePassword: string

@@ -13,3 +13,5 @@ export const UserWrapper = styled.div`
         margin-right: 1rem;
     }
 `;
+
+export const ButtonHandleWrapper = styled.div``;

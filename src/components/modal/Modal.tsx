@@ -9,7 +9,6 @@ export class Modal extends React.Component<{}, ModalProps> {
     public state: ModalProps = {
         isSignIn: false,
         isSignUp: true,
-        isVisible: true,
         signIn: {
             activePassword: '',
             login: ''
@@ -25,60 +24,58 @@ export class Modal extends React.Component<{}, ModalProps> {
     public render(): React.ReactNode {
         return (
             <>
-                {this.state.isVisible && (
-                    <ModalWrapper>
-                        <ModalContent action="GET">
-                            <fieldset>
-                                <legend>News api form</legend>
-                                {this.state.isSignIn && (
-                                    <>
-                                        <FormField type="text"
-                                                   name={'login'}
-                                                   onChange={this.inputHandler}
-                                                   value={this.state.signIn.login}
-                                                   title={'Login'}
-                                                   required />
-                                        <FormField type="password"
-                                                   name={'activePassword'}
-                                                   onChange={this.inputHandler}
-                                                   title={'Password'}
-                                                   value={this.state.signIn.activePassword}
-                                                   required />
-                                    </>
-                                )}
-                                {this.state.isSignUp && (
-                                    <>
-                                        <FormField type="text"
-                                                   name={'firstName'}
-                                                   onChange={this.inputHandler}
-                                                   title={'First name'}
-                                                   value={this.state.signUp.firstName}
-                                                   required />
-                                        <FormField type="text"
-                                                   name={'lastName'}
-                                                   onChange={this.inputHandler}
-                                                   title={'Last Name'}
-                                                   value={this.state.signUp.lastName}
-                                                   required />
-                                        <FormField type="email"
-                                                   name={'email'}
-                                                   onChange={this.inputHandler}
-                                                   title={'Email'}
-                                                   value={this.state.signUp.email}
-                                                   required />
-                                        <FormField type="password"
-                                                   name={'regPassword'}
-                                                   onChange={this.inputHandler}
-                                                   title={'Password'}
-                                                   value={this.state.signUp.regPassword}
-                                                   required />
-                                    </>
-                                )}
-                                <Button circle>OK</Button>
-                            </fieldset>
-                        </ModalContent>
-                    </ModalWrapper>
-                )}
+                <ModalWrapper>
+                    <ModalContent action="GET">
+                        <fieldset>
+                            <legend>News api form</legend>
+                            {this.state.isSignIn && (
+                                <>
+                                    <FormField type="text"
+                                               name={'login'}
+                                               onChange={this.inputHandler}
+                                               value={this.state.signIn.login}
+                                               title={'Login'}
+                                               required />
+                                    <FormField type="password"
+                                               name={'activePassword'}
+                                               onChange={this.inputHandler}
+                                               title={'Password'}
+                                               value={this.state.signIn.activePassword}
+                                               required />
+                                </>
+                            )}
+                            {this.state.isSignUp && (
+                                <>
+                                    <FormField type="text"
+                                               name={'firstName'}
+                                               onChange={this.inputHandler}
+                                               title={'First name'}
+                                               value={this.state.signUp.firstName}
+                                               required />
+                                    <FormField type="text"
+                                               name={'lastName'}
+                                               onChange={this.inputHandler}
+                                               title={'Last Name'}
+                                               value={this.state.signUp.lastName}
+                                               required />
+                                    <FormField type="email"
+                                               name={'email'}
+                                               onChange={this.inputHandler}
+                                               title={'Email'}
+                                               value={this.state.signUp.email}
+                                               required />
+                                    <FormField type="password"
+                                               name={'regPassword'}
+                                               onChange={this.inputHandler}
+                                               title={'Password'}
+                                               value={this.state.signUp.regPassword}
+                                               required />
+                                </>
+                            )}
+                            <Button circle>OK</Button>
+                        </fieldset>
+                    </ModalContent>
+                </ModalWrapper>
             </>
         );
     }

@@ -19,7 +19,7 @@ export const State: StateColorProps = {
 export const Background: BackgroundColorProps = {
     Background: {
         dark: '#263238',
-        light: '#fefefe'
+        light: '#f2f3f7'
     }
 };
 

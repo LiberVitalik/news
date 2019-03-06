@@ -4,6 +4,7 @@ import { ButtonWrapper } from './style';
 
 export class Button extends React.Component<ButtonProps> {
     public render(): React.ReactNode {
+
         return (
             <ButtonWrapper
                 active={this.props.active}

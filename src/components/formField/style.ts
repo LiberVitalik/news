@@ -7,6 +7,18 @@ export const FormFieldLabel = styled.label`
     margin-bottom: 15px;
 `;
 
+export const FormFieldSmall = styled.small`
+    font-family: ${OpenSans.regular};
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: inline-block;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    text-transform: none;
+    color: ${ColorPalette.Gray.soft};
+`;
+
 export const FormFieldInput = styled.input`
     font-family: ${OpenSans.regular};
     background-color: transparent;
@@ -25,22 +37,10 @@ export const FormFieldInput = styled.input`
     &:focus {
         border-color: ${ColorPalette.State.active};
     
-        & + small {
+        & + ${FormFieldSmall} {
             color: ${ColorPalette.State.active};
             top: -5px;
             font-size: 0.75rem;
         }
     }
-`;
-
-export const FormFieldSmall = styled.small`
-    font-family: ${OpenSans.regular};
-    position: absolute;
-    top: 50%;
-    left: 0;
-    display: inline-block;
-    transform: translateY(-50%);
-    font-size: 1rem;
-    text-transform: none;
-    color: ${ColorPalette.Gray.soft};
 `;
