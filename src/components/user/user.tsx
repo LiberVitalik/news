@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Button } from '../../theme/button/Button';
 import { Modal } from '../modal/modal';
 import { ButtonHandleWrapper, IconWrapper, UserWrapper } from './user.style';
-import { UserState } from './user.types';
+import { FormType, UserState } from './user.types';
 
 library.add(faUser);
 library.add(faUserPlus);
@@ -14,6 +14,8 @@ export class User extends React.Component<{}, UserState> {
         modalShow: false
     };
 
+    private modalType: string;
+
     public render(): React.ReactNode {
 
         const { modalShow } = this.state;
@@ -21,13 +23,13 @@ export class User extends React.Component<{}, UserState> {
         return (
             <>
                 <UserWrapper>
-                    <ButtonHandleWrapper onClick={this.toggleModal}>
+                    <ButtonHandleWrapper onClick={this.toggleModal(FormType.signIn)}>
                         <Button>
                             <IconWrapper icon="user" />
                             Sign In
                         </Button>
                     </ButtonHandleWrapper>
-                    <ButtonHandleWrapper>
+                    <ButtonHandleWrapper onClick={this.toggleModal(FormType.signUp)}>
                         <Button>
                             <IconWrapper icon="user-plus" />
                             Sign Up
@@ -39,11 +41,17 @@ export class User extends React.Component<{}, UserState> {
         );
     }
 
-    private toggleModal = (): void => {
+    private toggleModal = (modalName: string) => () => {
         const { modalShow } = this.state;
+
+        this.modalType = modalName;
+
+        console.log(this.modalType);
 
         this.setState({
             modalShow: !modalShow
         });
     };
+
+    // private modalType = (): string => {};
 }

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Button } from '../../theme/button/Button';
 import { FormField } from '../formField/form-field';
-import { ModalProps } from './modal.types';
 import { ModalContent, ModalWrapper } from './modal.style';
+import { ModalProps } from './modal.types';
 
 export class Modal extends React.Component<{}, ModalProps> {
 

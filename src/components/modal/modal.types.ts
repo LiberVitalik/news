@@ -11,4 +11,5 @@ export interface ModalProps {
     };
     isSignIn?: boolean;
     isSignUp?: boolean;
+    formType?: string;
 }
