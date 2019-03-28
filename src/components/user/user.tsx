@@ -1,9 +1,10 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import * as React from 'react';
-import { Button } from '../../theme/button/Button';
+import { SyntheticEvent } from 'react';
+import { Button } from '../../theme/commot-style/common-style';
 import { Modal } from '../modal/modal';
-import { ButtonHandleWrapper, IconWrapper, UserWrapper } from './user.style';
+import { IconWrapper, UserWrapper } from './user.style';
 import { FormType, UserState } from './user.types';
 
 library.add(faUser);
@@ -11,47 +12,45 @@ library.add(faUserPlus);
 
 export class User extends React.Component<{}, UserState> {
     public state = {
-        modalShow: false
+        isModalShow: false
     };
 
-    private modalType: string;
+    private modalName: string;
 
     public render(): React.ReactNode {
 
-        const { modalShow } = this.state;
+        const { isModalShow } = this.state;
         
         return (
             <>
                 <UserWrapper>
-                    <ButtonHandleWrapper onClick={this.toggleModal(FormType.signIn)}>
-                        <Button>
-                            <IconWrapper icon="user" />
-                            Sign In
-                        </Button>
-                    </ButtonHandleWrapper>
-                    <ButtonHandleWrapper onClick={this.toggleModal(FormType.signUp)}>
-                        <Button>
-                            <IconWrapper icon="user-plus" />
-                            Sign Up
-                        </Button>
-                    </ButtonHandleWrapper>
+                    <Button onClick={this.openModal(FormType.signIn)}>
+                        <IconWrapper icon="user" />
+                        Sign In
+                    </Button>
+                    <Button onClick={this.openModal(FormType.signUp)}>
+                        <IconWrapper icon="user-plus" />
+                        Sign Up
+                    </Button>
                 </UserWrapper>
-                {modalShow &&  <Modal />}
+                {isModalShow &&  <Modal formName={this.modalName} modalClose={this.modalCloseHandler} />}
             </>
         );
     }
 
-    private toggleModal = (modalName: string) => () => {
-        const { modalShow } = this.state;
-
-        this.modalType = modalName;
-
-        console.log(this.modalType);
+    private openModal = (formName: string) => (): void => {
+        this.modalName = formName;
 
         this.setState({
-            modalShow: !modalShow
+            isModalShow: true
         });
     };
 
-    // private modalType = (): string => {};
+    private modalCloseHandler = (event: SyntheticEvent): void => {
+        event.preventDefault();
+        this.setState({
+            isModalShow: false
+        });
+        console.log('USER MODAL CLOSE');
+    };
 }

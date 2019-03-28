@@ -1,14 +1,17 @@
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import * as React from 'react';
-import { Button } from '../../theme/button/Button';
+import { Button } from '../../theme/commot-style/common-style';
 import { FormField } from '../formField/form-field';
-import { ModalContent, ModalWrapper } from './modal.style';
-import { ModalProps } from './modal.types';
+import { FormType } from '../user/user.types';
+import { ButtonClose, IconWrapper, ModalContent, ModalWrapper } from './modal.style';
+import { ModalProps, ModalState } from './modal.types';
 
-export class Modal extends React.Component<{}, ModalProps> {
+library.add(faTimes);
 
-    public state: ModalProps = {
-        isSignIn: false,
-        isSignUp: true,
+export class Modal extends React.Component<ModalProps, ModalState> {
+
+    public state: ModalState = {
         signIn: {
             activePassword: '',
             login: ''
@@ -22,13 +25,19 @@ export class Modal extends React.Component<{}, ModalProps> {
     };
 
     public render(): React.ReactNode {
+
+        const { modalClose } = this.props;
+
         return (
             <>
                 <ModalWrapper>
                     <ModalContent action="GET">
+                        <ButtonClose onClick={modalClose}>
+                            <IconWrapper icon="times" />
+                        </ButtonClose>
                         <fieldset>
                             <legend>News api form</legend>
-                            {this.state.isSignIn && (
+                            {this.props.formName === FormType.signIn && (
                                 <>
                                     <FormField type="text"
                                                name={'login'}
@@ -44,7 +53,7 @@ export class Modal extends React.Component<{}, ModalProps> {
                                                required />
                                 </>
                             )}
-                            {this.state.isSignUp && (
+                            {this.props.formName === FormType.signUp && (
                                 <>
                                     <FormField type="text"
                                                name={'firstName'}
@@ -81,19 +90,13 @@ export class Modal extends React.Component<{}, ModalProps> {
     }
 
     private inputHandler = (value: string): void => {
-        if (this.state.isSignIn) {
-            this.setState({
-                signIn: {
-                    [name]: value
-                }
-            } as ModalProps);
-        }
-        if (this.state.isSignUp) {
-            this.setState({
-                signUp: {
-                    [name]: value
-                }
-            } as ModalProps);
-        }
+        this.setState({
+            signIn: {
+                [name]: value
+            },
+            signUp: {
+                [name]: value
+            }
+        } as ModalState);
     };
 }

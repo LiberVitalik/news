@@ -1,6 +1,18 @@
-import styled  from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ColorPalette } from '../colors/colors';
 import { OpenSans } from '../fonts/fonts';
+
+export const FlexCenter = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const ResetButton = css`
+    border: none;
+    background: transparent;
+    cursor: pointer;
+`;
 
 const buttonActive = `
     border: 1px solid ${ColorPalette.State.active};
@@ -20,7 +32,7 @@ const buttonError = `
     }
 `;
 
-export const ButtonWrapper = styled.button<{ circle?: boolean; active?: boolean; error?: boolean }>`
+export const Button = styled.button<{ circle?: boolean; active?: boolean; error?: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;

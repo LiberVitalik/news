@@ -1,6 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import { ButtonWrapper } from '../../theme/button/style';
 import { ColorPalette } from '../../theme/colors/colors';
+import { Button, FlexCenter, ResetButton } from '../../theme/commot-style/common-style';
 import { OpenSans } from '../../theme/fonts/fonts';
 import { FormFieldInput, FormFieldSmall } from '../formField/form-field.style';
 
@@ -12,6 +13,28 @@ export const ModalWrapper = styled.div`
     height: calc(100vh - 70px);
     font-family: ${OpenSans.regular};
     background: ${ColorPalette.Background.dark};
+`;
+
+export const IconWrapper = styled(FontAwesomeIcon)`
+    color: ${ColorPalette.Gray.soft};
+    font-size: 32px;
+`;
+
+export const ButtonClose = styled.button`
+    padding: 18px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    outline: transparent;
+    ${ResetButton};
+    ${FlexCenter};
+    
+    &:hover {
+        ${IconWrapper} {
+            color: white;
+        }
+    }
 `;
 
 export const ModalContent = styled.form`
@@ -28,7 +51,7 @@ export const ModalContent = styled.form`
     color: ${ColorPalette.Background.light};
     box-shadow: 1px 1px 3px ${ColorPalette.Gray.dark};
     
-    ${ButtonWrapper} {
+    ${Button} {
         width: 100px;
         height: 100px;
         margin: 20px auto 0;

@@ -1,4 +1,6 @@
-export interface ModalProps {
+import { SyntheticEvent } from 'react';
+
+export interface ModalState {
     signIn?: {
         login: string,
         activePassword: string
@@ -12,4 +14,9 @@ export interface ModalProps {
     isSignIn?: boolean;
     isSignUp?: boolean;
     formType?: string;
+}
+
+export interface ModalProps {
+    formName: string;
+    modalClose(event: SyntheticEvent): void;
 }

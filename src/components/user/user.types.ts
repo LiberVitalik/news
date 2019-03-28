@@ -1,5 +1,5 @@
 export interface UserState {
-    modalShow: boolean;
+    isModalShow: boolean;
 }
 
 export enum FormType {
