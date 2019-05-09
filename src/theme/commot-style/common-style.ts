@@ -8,6 +8,18 @@ export const FlexCenter = css`
     align-items: center;
 `;
 
+export const FlexVerticalCenter = css`
+    display: flex;
+    align-items: center;
+`;
+
+export const AbsoluteCenter = css`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`;
+
 export const ResetButton = css`
     border: none;
     background: transparent;

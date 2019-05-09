@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { ColorPalette } from '../../theme/colors/colors';
 
@@ -6,20 +7,23 @@ export const HeaderWrapper = styled.header`
     width: 100%;
     height: 70px;
     display: flex;
+    z-index: 1;
     justify-content: space-between;
     align-items: center;
     background: ${ColorPalette.Gray.dark};
 `;
 
-const logoUrl = require('../../img/logo.png');
+export const LogoIcon = styled(FontAwesomeIcon)`
+    color: ${ColorPalette.Gray.light};
+`;
 
 export const Logo = styled.a`
-    width: 79px;
-    height: 35px;
-    background: url(${logoUrl}) top no-repeat;
     margin-left: 2%;
+    padding: 8px;
     
     &:hover {
-        background-position: bottom;
+        ${LogoIcon} {
+            color: white;
+        }
     }
 `;

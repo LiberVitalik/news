@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
-export const Main = styled.div`
+export const MainWrapper = styled.div`
     position: relative;
+    overflow: hidden;
 `;

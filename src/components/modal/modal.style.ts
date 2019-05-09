@@ -10,6 +10,7 @@ export const ModalWrapper = styled.div`
     top: 70px;
     left: 0;
     width: 100vw;
+    z-index: 1;
     height: calc(100vh - 70px);
     font-family: ${OpenSans.regular};
     background: ${ColorPalette.Background.dark};
