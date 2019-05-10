@@ -8,6 +8,7 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
+    "types": ["react"],
     "target": "es6"
   },
   "include": [
