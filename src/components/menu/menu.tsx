@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { NewsEnum } from '../../services/news.enum';
 import { MenuItem, MenuList, MenuNav } from './menu.style';
+import { MenuTypes } from './menu.types';
 
-export class Menu extends React.Component {
+export class Menu extends React.Component<MenuTypes> {
 
     public render() {
         return (
@@ -22,6 +23,7 @@ export class Menu extends React.Component {
     }
 
     private selectNews = (news: NewsEnum) => (): void => {
-        console.log(news);
+        const { newsHandler } = this.props;
+        newsHandler(news);
     }
 }
