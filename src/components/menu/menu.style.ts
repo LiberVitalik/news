@@ -7,6 +7,8 @@ export const MenuNav = styled.nav`
     position: fixed;
     width: 100%;
     top: 70px;
+    max-height: 70px;
+    z-index: 1;
     border-bottom: 1px solid ${ColorPalette.Background.dark};
 `;
 
@@ -14,6 +16,7 @@ export const MenuList = styled.ul`
     height: 100%;
     margin: 0;
     flex-wrap: wrap;
+    background: white;
     ${FlexCenter};
 `;
 

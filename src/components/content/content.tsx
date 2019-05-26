@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ContentWrapper } from './content.style';
 
 export class Content extends React.Component {
 
@@ -6,7 +7,7 @@ export class Content extends React.Component {
         const { children } = this.props;
 
         return (
-            <div>{children}</div>
+            <ContentWrapper>{children}</ContentWrapper>
         );
     }
 }

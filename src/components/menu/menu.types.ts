@@ -1,3 +1,3 @@
-export interface MenuTypes {
+export interface MenuProps {
     newsHandler(news: string): void;
 }

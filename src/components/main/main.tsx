@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NewsEnum } from '../../services/news.enum';
 import { getNewsData } from '../../services/news.service';
 import { Menu } from '../menu/menu';
-import { MainState } from './main.types';
+import { ArticlesData, MainState } from './main.types';
 import { News } from '../news/news';
 import { Content } from '../content/content';
 
@@ -13,7 +13,7 @@ export class Main extends React.Component<{}, MainState> {
         articles: []
     };
 
-    public componentDidUpdate(prevProps: any, prevState: MainState): void {
+    public componentDidUpdate(prevProps: {}, prevState: MainState): void {
         const { newsName } = this.state;
         if (newsName && newsName !== prevState.newsName) {
             this.loadNews();
@@ -35,14 +35,13 @@ export class Main extends React.Component<{}, MainState> {
         this.setState({
             newsName: news
         });
-        console.log('News Name', this.state.newsName);
     };
 
     private loadNews = () => {
         const { newsName } = this.state;
         getNewsData(NewsEnum[newsName as keyof typeof NewsEnum]).then(data => {
             return data.status === 'ok' ? data.articles : null;
-        }).then((data: any) => {
+        }).then((data: ArticlesData[]): void => {
             if (data) {
                 this.setState({
                     articles: data
@@ -54,8 +53,8 @@ export class Main extends React.Component<{}, MainState> {
     private renderNews = () => {
         const { articles } = this.state;
 
-        return articles.map((newsData: any, index: number) => {
+        return articles.map((newsData: ArticlesData, index: number) => {
             return (<News article={newsData} key={index} />);
         });
-    }
+    };
 }

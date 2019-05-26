@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { NewsEnum } from '../../services/news.enum';
 import { MenuItem, MenuList, MenuNav } from './menu.style';
-import { MenuTypes } from './menu.types';
+import { MenuProps } from './menu.types';
 
-export class Menu extends React.Component<MenuTypes> {
+export class Menu extends React.Component<MenuProps> {
 
     public render() {
         return (
             <MenuNav>
                 <MenuList>
-                    {Object.keys(NewsEnum).map((item: any, index: number) => {
+                    {Object.keys(NewsEnum).map((item: keyof typeof NewsEnum, index: number) => {
                         return (
                             <MenuItem key={index} onClick={this.selectNews(item)}>
                                 {NewsEnum[item].replace('-', ' ').toUpperCase()}
@@ -22,7 +22,7 @@ export class Menu extends React.Component<MenuTypes> {
         );
     }
 
-    private selectNews = (news: NewsEnum) => (): void => {
+    private selectNews = (news: keyof typeof NewsEnum) => (): void => {
         const { newsHandler } = this.props;
         newsHandler(news);
     }

@@ -1,17 +1,5 @@
-export interface NewsProps {
-    article: any;
-}
+import { ArticlesData } from '../main/main.types';
 
-export interface ArticlesData {
-    author: string | null;
-    content: string;
-    description: string;
-    publishedAt: string;
-    source: {
-        id: string;
-        name: string;
-    };
-    title: string;
-    url: string;
-    urlToImage: string;
+export interface NewsProps {
+    article: ArticlesData;
 }

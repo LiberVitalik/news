@@ -51,6 +51,5 @@ export class User extends React.Component<{}, UserState> {
         this.setState({
             isModalShow: false
         });
-        console.log('USER MODAL CLOSE');
     };
 }
