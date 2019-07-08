@@ -27,3 +27,8 @@ export class Menu extends React.Component<MenuProps> {
         newsHandler(news);
     }
 }
+(() => {
+// @ts-ignore-file
+
+
+})();

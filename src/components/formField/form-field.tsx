@@ -29,7 +29,10 @@ export class FormField extends React.PureComponent<FormFieldProps, FormFieldStat
     }
 
     private formFieldHandler = (event: React.FormEvent<HTMLInputElement>): void => {
-        this.props.onChange(event.currentTarget.value);
+
+        const { onChange } = this.props;
+
+        onChange(event.currentTarget.value, event.currentTarget.name);
 
         this.setState({
             isLabelActive: !!event.currentTarget.value

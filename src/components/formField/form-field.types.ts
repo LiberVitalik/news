@@ -8,5 +8,5 @@ export interface FormFieldProps {
     type: string;
     value: string;
     required?: boolean;
-    onChange(event: string): void;
+    onChange(event: string, name: string): void;
 }

@@ -26,7 +26,9 @@ export class Modal extends React.Component<ModalProps, ModalState> {
 
     public render(): React.ReactNode {
 
-        const { modalClose } = this.props;
+        const { modalClose, formName } = this.props;
+        const { login, activePassword } = this.state.signIn;
+        const { firstName, lastName, email, regPassword } = this.state.signUp;
 
         return (
             <>
@@ -37,47 +39,47 @@ export class Modal extends React.Component<ModalProps, ModalState> {
                         </ButtonClose>
                         <fieldset>
                             <legend>News api form</legend>
-                            {this.props.formName === FormType.signIn && (
+                            {formName === FormType.signIn && (
                                 <>
                                     <FormField type="text"
                                                name={'login'}
                                                onChange={this.inputHandler}
-                                               value={this.state.signIn.login}
+                                               value={login}
                                                title={'Login'}
                                                required />
                                     <FormField type="password"
                                                name={'activePassword'}
                                                onChange={this.inputHandler}
                                                title={'Password'}
-                                               value={this.state.signIn.activePassword}
+                                               value={activePassword}
                                                required />
                                 </>
                             )}
-                            {this.props.formName === FormType.signUp && (
+                            {formName === FormType.signUp && (
                                 <>
                                     <FormField type="text"
                                                name={'firstName'}
                                                onChange={this.inputHandler}
                                                title={'First name'}
-                                               value={this.state.signUp.firstName}
+                                               value={firstName}
                                                required />
                                     <FormField type="text"
                                                name={'lastName'}
                                                onChange={this.inputHandler}
                                                title={'Last Name'}
-                                               value={this.state.signUp.lastName}
+                                               value={lastName}
                                                required />
                                     <FormField type="email"
                                                name={'email'}
                                                onChange={this.inputHandler}
                                                title={'Email'}
-                                               value={this.state.signUp.email}
+                                               value={email}
                                                required />
                                     <FormField type="password"
                                                name={'regPassword'}
                                                onChange={this.inputHandler}
                                                title={'Password'}
-                                               value={this.state.signUp.regPassword}
+                                               value={regPassword}
                                                required />
                                 </>
                             )}
@@ -89,12 +91,11 @@ export class Modal extends React.Component<ModalProps, ModalState> {
         );
     }
 
-    private inputHandler = (value: string): void => {
+    private inputHandler = (value: string, name: string): void => {
+        const { formName } = this.props;
+
         this.setState({
-            signIn: {
-                [name]: value
-            },
-            signUp: {
+            [formName]: {
                 [name]: value
             }
         } as ModalState);
