@@ -96,6 +96,8 @@ export class Modal extends React.Component<ModalProps, ModalState> {
 
         this.setState({
             [formName]: {
+                // @ts-ignore
+                ...this.state[formName],
                 [name]: value
             }
         } as ModalState);
